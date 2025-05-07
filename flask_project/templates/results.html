@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Summarization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+        background-color: #f0f2f5;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+        font-weight: bold;
+    }
+
+    .scrollable {
+        overflow-y: scroll;
+        height: 90vh;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .doc-image {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+
+    .summary-box {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        height: 90vh;
+        overflow-y: auto;
+    }
+
+    </style>
+</head>
+<body class="container mt-4">
+    <h1 class="mb-4">Summarization</h1>
+    <div class="row">
+        <div class="col-md-7 scrollable border-end">
+            {% for img in images %}
+                <img src="{{ img }}" alt="Document Page" class="doc-image">
+            {% endfor %}
+        </div>
+        <p>{{ summaries }}</p>
+        <div class="col-md-5">
+            {% for summary in summaries %}
+                <div class="mb-4">
+                    <h5>Summary {{ loop.index }}:</h5>
+                    <p>{{ summary }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
